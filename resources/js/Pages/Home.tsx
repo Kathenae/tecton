@@ -25,7 +25,6 @@ export default function Home({
     laravelVersion,
     phpVersion,
 }: PageProps<{ laravelVersion: string; phpVersion: string }>) {
-
     return (
         <>
             <header className='flex bg-white border-b-[20px] border-bahia-400 space-x-12 px-10'>
@@ -70,7 +69,7 @@ export default function Home({
                         <h3 className='text-white text-7xl font-bold mb-16'>Quiénes somos</h3>
                         <iframe
                             className='w-full h-[600px] rounded-xl'
-                            src="https://www.youtube.com/embed/Rc7OHXJtWco?si=cQTCXPLA8acymzqg"
+                            src="https://www.youtube.com/embed/Z-44pi603X4?si=p4Ljlayha8S4ieyY"
                             title="YouTube video player"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
