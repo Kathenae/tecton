@@ -173,6 +173,7 @@ export default function Home({
                     </div>
                 </div>
             </section>
+            
             <footer className='bg-tuatara-950 py-12 flex text-white space-x-2 items-center justify-center'>
                 <p>Designed by: </p>
                 <img src={LogoMkt} width={100}/>
