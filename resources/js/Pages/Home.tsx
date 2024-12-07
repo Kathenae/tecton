@@ -16,9 +16,9 @@ import Package1Bg from "../../img/img18.png";
 import Package2Bg from "../../img/img17.png";
 import Package3Bg from "../../img/img16.png";
 import { Head, Link } from '@inertiajs/react';
-import TextInput from '@/Components/TextInput';
-import PrimaryButton from '@/Components/PrimaryButton';
-import InputLabel from '@/Components/InputLabel';
+import TextInput from '@/components/TextInput';
+import PrimaryButton from '@/components/PrimaryButton';
+import InputLabel from '@/components/InputLabel';
 
 export default function Home({
     auth,

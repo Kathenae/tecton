@@ -1,9 +1,11 @@
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
+import InputError from '@/components/InputError';
+import InputLabel from '@/components/InputLabel';
+import LinkText from '@/components/LinkText';
+import PrimaryButton from '@/components/PrimaryButton';
+import TextInput from '@/components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
 import { Head, Link, useForm } from '@inertiajs/react';
+import { Loader2 } from 'lucide-react';
 import { FormEventHandler } from 'react';
 
 export default function Register() {
@@ -25,6 +27,8 @@ export default function Register() {
     return (
         <GuestLayout>
             <Head title="Register" />
+            
+            <h1 className='text-xl text-foreground mb-4'>Create Account</h1>
 
             <form onSubmit={submit}>
                 <div>
@@ -103,15 +107,14 @@ export default function Register() {
                     />
                 </div>
 
-                <div className="mt-4 flex items-center justify-end">
-                    <Link
+                <div className="mt-4 flex flex-col space-y-2 items-center justify-center">
+                    <LinkText
                         href={route('login')}
-                        className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
                         Already registered?
-                    </Link>
-
-                    <PrimaryButton className="ms-4" disabled={processing}>
+                    </LinkText>
+                    <PrimaryButton disabled={processing} className='w-full'>
+                        {processing && <Loader2 className='h-4 w-4 animate-spin'/>}
                         Register
                     </PrimaryButton>
                 </div>

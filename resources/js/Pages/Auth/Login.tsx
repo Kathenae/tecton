@@ -1,10 +1,12 @@
-import Checkbox from '@/Components/Checkbox';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
+import Checkbox from '@/components/Checkbox';
+import InputError from '@/components/InputError';
+import InputLabel from '@/components/InputLabel';
+import LinkText from '@/components/LinkText';
+import PrimaryButton from '@/components/PrimaryButton';
+import TextInput from '@/components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
 import { Head, Link, useForm } from '@inertiajs/react';
+import { Loader2 } from 'lucide-react';
 import { FormEventHandler } from 'react';
 
 export default function Login({
@@ -32,11 +34,7 @@ export default function Login({
         <GuestLayout>
             <Head title="Log in" />
 
-            {status && (
-                <div className="mb-4 text-sm font-medium text-green-600">
-                    {status}
-                </div>
-            )}
+            <h1 className='text-xl text-foreground mb-4'>Login</h1>
 
             <form onSubmit={submit}>
                 <div>
@@ -81,27 +79,34 @@ export default function Login({
                                 setData('remember', e.target.checked)
                             }
                         />
-                        <span className="ms-2 text-sm text-gray-600">
+                        <span className="ms-2 text-sm text-foreground/50">
                             Remember me
                         </span>
                     </label>
                 </div>
 
-                <div className="mt-4 flex items-center justify-end">
+                <div className="mt-4 flex flex-col space-y-2 items-center justify-center">
                     {canResetPassword && (
-                        <Link
+                        <LinkText
                             href={route('password.request')}
-                            className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                         >
                             Forgot your password?
-                        </Link>
+                        </LinkText>
                     )}
 
-                    <PrimaryButton className="ms-4" disabled={processing}>
+                    <PrimaryButton className="!w-full" disabled={processing}>
+                        {processing && <Loader2 className='h-4 w-4 animate-spin'/>}
                         Log in
                     </PrimaryButton>
                 </div>
             </form>
+
+            {status && (
+                <div className="mt-4 text-sm font-medium text-green-600">
+                    {status}
+                </div>
+            )}
+
         </GuestLayout>
     );
 }
