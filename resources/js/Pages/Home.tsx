@@ -1,4 +1,5 @@
 import { PageProps } from '@/types';
+import 'swiper/css';
 import Logo from '../../img/logo_tec-tonarq.png';
 import LogoEnscape from "../../img/logo_enscape.png";
 import LogoVray from "../../img/logo_vray.png";
@@ -15,10 +16,10 @@ import Gallery03 from "../../img/gallery03.png";
 import Package1Bg from "../../img/img18.png";
 import Package2Bg from "../../img/img17.png";
 import Package3Bg from "../../img/img16.png";
-import { Head, Link } from '@inertiajs/react';
+import { Link } from '@inertiajs/react';
 import TextInput from '@/components/TextInput';
-import PrimaryButton from '@/components/PrimaryButton';
 import InputLabel from '@/components/InputLabel';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 export default function Home({
     auth,
@@ -87,18 +88,35 @@ export default function Home({
 
             <section className='bg-tuatara-900 flex flex-col py-32 justify-center items-center'>
                 <div className='container mx-auto flex space-x-4 overflow-hidden'>
-                    <div className='relative rounded-3xl'>
-                        <img className='rounded-3xl min-w-[480px] h-[300px]' src={Gallery01} />
-                        <img className='absolute w-48 bottom-2 right-4' src={LogoEnscape} />
-                    </div>
-                    <div className='relative rounded-3xl'>
-                        <img className='rounded-3xl min-w-[480px] h-[300px]' src={Gallery03} />
-                        <img className='absolute w-24 bottom-2 right-4' src={LogoVray} />
-                    </div>
-                    <div className='relative rounded-3xl'>
-                        <img className='rounded-3xl min-w-[480px] h-[300px]' src={Gallery02} />
-                        <img className='absolute w-48 bottom-2 right-4' src={LogoEnscape} />
-                    </div>
+                    <Swiper
+                        spaceBetween={25}
+                        slidesPerView={3}
+                    >
+                        <SwiperSlide className='relative'>
+                            <img className='rounded-3xl w-full h-full' src={Gallery01} />
+                            <img className='absolute w-48 bottom-2 right-4' src={LogoEnscape} />
+                        </SwiperSlide>
+                        <SwiperSlide className='relative'>
+                            <img className='rounded-3xl w-full h-full' src={Gallery03} />
+                            <img className='absolute w-24 bottom-2 right-4' src={LogoVray} />
+                        </SwiperSlide>
+                        <SwiperSlide className='relative'>
+                            <img className='rounded-3xl w-full h-full' src={Gallery02} />
+                            <img className='absolute w-48 bottom-2 right-4' src={LogoEnscape} />
+                        </SwiperSlide>
+                        <SwiperSlide className='relative'>
+                            <img className='rounded-3xl w-full h-full' src={Gallery01} />
+                            <img className='absolute w-48 bottom-2 right-4' src={LogoEnscape} />
+                        </SwiperSlide>
+                        <SwiperSlide className='relative'>
+                            <img className='rounded-3xl w-full h-full' src={Gallery03} />
+                            <img className='absolute w-24 bottom-2 right-4' src={LogoVray} />
+                            </SwiperSlide>
+                        <SwiperSlide className='relative'>
+                            <img className='rounded-3xl w-full h-full' src={Gallery02} />
+                            <img className='absolute w-48 bottom-2 right-4' src={LogoEnscape} />
+                        </SwiperSlide>
+                    </Swiper>
                 </div>
                 <Link href='' className='bg-white mt-12 text-bahia-400 px-8 py-2 rounded-full font-bold text-5xl'>Ver nuestro portfolio</Link>
             </section>
